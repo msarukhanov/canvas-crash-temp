@@ -1,0 +1,13 @@
+@import '../abstracts/variables';
+
+html,
+body {
+  font-family: $fontPrimary;
+  font-size: 14px;
+  color: #000;
+  -webkit-font-smoothing: antialiased;
+}
+
+a {
+  text-decoration: none;
+}

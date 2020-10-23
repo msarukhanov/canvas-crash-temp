@@ -1,0 +1,117 @@
+@import 'node_modules/normalize.css/normalize';
+@import 'base/reset';
+@import 'abstracts/variables';
+@import 'base/icons';
+@import 'base/typography';
+@import 'components/buttons';
+
+html,
+body {
+  position: relative;
+  width: 100%;
+  overflow: auto;
+  background-color: #FAFBFA;
+}
+
+
+#app {
+  overflow: hidden;
+}
+
+.form-field {
+  &__label {
+    margin-bottom: 10px;
+    font-size: 12px;
+    color: #697A8F;
+  }
+}
+
+.radio-btn {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  height: 24px;
+  padding-left: 28px;
+  margin-bottom: 8px;
+  cursor: pointer;
+  user-select: none;
+  transition: 0.5s ease;
+
+  &__btn {
+    position: absolute;
+    top: 2px;
+    left: 2px;
+    height: 20px;
+    width: 20px;
+    border: 2px solid rgba(#697A8F, .5);
+    border-radius: 50%;
+
+    &:after {
+      content: '';
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      width: 10px;
+      height: 10px;
+      margin: auto;
+      border-radius: 50%;
+      background-color: transparent;
+      transition: 0.5s ease;
+    }
+  }
+
+  &__text {
+    font-size: 12px;
+    letter-spacing: 0.3px;
+    color: rgba(#697A8F, 0.5);
+    transition: 0.5s ease;
+  }
+
+  input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+
+    &:checked ~ .radio-btn__btn {
+      border-color: #2CC0AD;
+
+      &:after {
+        background-color: #2CC0AD;
+      }
+    }
+
+    &:checked ~ .radio-btn__text {
+      color: #697A8F;
+    }
+  }
+
+  &.disabled {
+    input {
+      &:checked ~ .radio-btn__btn {
+        border-color: rgba(#697A8F, .5);
+
+        &:after {
+          background-color: rgba(#697A8F, .5);
+        }
+      }
+    }
+  }
+}
+
+
+
+
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input[type="number"] {
+  -moz-appearance: textfield;
+}
+
+
